@@ -6331,9 +6331,9 @@ const Header = () => {
 
   return (
     <header className="w-full flex items-center justify-between px-4 py-3 lg:px-8 border-b border-gray-300 bg-bgPrimary z-50 gap-12 sticky top-0">
-      <Link to={"/"}>
+      {/* <Link to={"/"}>
         <img src={Logo} className="w-12 h-auto object-contain" alt="Logo" />
-      </Link>
+      </Link> */}
 
       <div className="flex-1 border border-gray-300 px-4 py-1 rounded-md flex items-center justify-between bg-gray-200">
         <input
@@ -6356,7 +6356,7 @@ const Header = () => {
         </AnimatePresence>
       </div>
 
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {user ? (
           <motion.div
             {...FadeInOutWIthOpacity}
@@ -6462,7 +6462,7 @@ const Header = () => {
             </motion.button>
           </Link>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </header>
   );
 };

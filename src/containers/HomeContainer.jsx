@@ -1333,6 +1333,7 @@ import Filters from "../components/Filters";
 import TemplateDesignPin from "../components/TemplateDesignPin";
 import { getUserCollection } from "../api";
 import { fetchUserCollection } from "../api/useUserCollection";
+import { Header } from "../components";
 
 const HomeContainer = ({ user }) => {
   const { data: templates = [], isError, isLoading, refetch } = useTemplates();
@@ -1397,32 +1398,71 @@ const HomeContainer = ({ user }) => {
     return <p>Error loading templates.</p>;
   }
   
+  // return (
+  //   <div className="w-full">
+  //      <div style={{ height: "40px", visibility: "hidden" }}></div>
+  //      <Header/>
+  //   <div className="px-0 lg:px-4 py-6 flex flex-col items-center justify-start">
+  //     {/* Filters component to show the scroll bar for filtering */}
+  //     <Filters />
+
+  //     {/* Log filtered templates to see the filtering effect */}
+  //     {console.log("Filtered templates: ", filteredTemplates)}
+
+  //     {/* Render templates */}
+  //     {filteredTemplates.length > 0 ? (
+  //       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+  //         {filteredTemplates.map((template, index) => (
+  //            <div className="transform scale-90">
+  //           <TemplateDesignPin style={{}}
+  //             key={template._id}
+  //             data={template}
+  //             index={index}
+  //             isAdded={user ? isTemplateInCollection(template._id) : false} // Check collection only if user is logged in
+  //             user={user} // Pass the user prop if necessary
+  //           />
+  //            </div>
+  //         ))}
+  //       </div>
+  //     ) : (
+  //       <p>No templates found</p>
+  //     )}
+  //   </div>
+  //   </div>
+  // );
+
   return (
-    <div className="w-full px-4 lg:px-12 py-6 flex flex-col items-center justify-start">
-      {/* Filters component to show the scroll bar for filtering */}
-      <Filters />
+    <div className="w-full">
+        <div style={{ height: "40px", visibility: "hidden" }}></div>
+        <Header />
+        <div className="px-0 lg:px-4 py-6 flex flex-col items-center justify-start">
+            {/* Filters component to show the scroll bar for filtering */}
+            <Filters />
 
-      {/* Log filtered templates to see the filtering effect */}
-      {console.log("Filtered templates: ", filteredTemplates)}
+            {/* Log filtered templates to see the filtering effect */}
+            {console.log("Filtered templates: ", filteredTemplates)}
 
-      {/* Render templates */}
-      {filteredTemplates.length > 0 ? (
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2">
-          {filteredTemplates.map((template, index) => (
-            <TemplateDesignPin
-              key={template._id}
-              data={template}
-              index={index}
-              isAdded={user ? isTemplateInCollection(template._id) : false} // Check collection only if user is logged in
-              user={user} // Pass the user prop if necessary
-            />
-          ))}
+            {/* Render templates */}
+            {filteredTemplates.length > 0 ? (
+                <div className="template-container w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                    {filteredTemplates.map((template, index) => (
+                        <div className="transform scale-90" key={template._id}>
+                            <TemplateDesignPin
+                                data={template}
+                                index={index}
+                                isAdded={user ? isTemplateInCollection(template._id) : false} // Check collection only if user is logged in
+                                user={user} // Pass the user prop if necessary
+                            />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p>No templates found</p>
+            )}
         </div>
-      ) : (
-        <p>No templates found</p>
-      )}
     </div>
-  );
+);
+
 };
 
 export default HomeContainer;

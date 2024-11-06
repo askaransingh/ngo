@@ -1,15 +1,3 @@
-// import React from 'react'
-
-// const Template1 = () => {
-//   return (
-//     <div>
-//       Template1
-//     </div>
-//   )
-// }
-
-// export default Template1
-
 import React, { useEffect, useRef, useState } from "react";
 import MainSpinner from "../MainSpinner";
 // import { useQuery } from "react-query";
@@ -20,23 +8,14 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { db } from "../../config/firebase.config";
 import { getTemplateDetailEditByUser } from "../../api";
-// import htmlToImage from "html-to-image";
-// import { toPng } from "html-to-image";
+
 import { toPng } from "html-to-image";
 import jsPDF from "jspdf";
-// import html2pdf from "html2pdf.js";
+
 import html2pdf from "html2pdf.js";
 
 import { FaPlus, FaTrash } from "react-icons/fa";
-// import { toast } from 'react-toastify';// import jsPDF from "jspdf";
-// import html2canvas from "html2canvas";
-// import * as htmlToImage from "html-to-image";
 
-// import { toPng } from 'html-to-image';
-// import jsPDF from 'jspdf';
-// import { FadeInOutWithOpacity } from '../animations';
-// import htmlToImage from 'html-to-image';
-// import jsPDF from 'jspdf';
 import { TemplateOne } from "../../assets-20240903T162903Z-001/assets";
 import { FaHouse, FaPenToSquare, FaPencil } from "react-icons/fa6";
 import { BiSolidBookmarks } from "react-icons/bi";

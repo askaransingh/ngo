@@ -7,15 +7,18 @@ import UserProfile from "./UserProfile";
 import CreateResume from "./CreateResume";
 import TemplateDesignPinDetails from "./TemplateDesignPinDetails";
 import TemplatesComponent from "../components/designs/TemplatesComponent";
-
+import ResumeHome from "./ResumeHome";
+import Nav from "./Nav";
 const HomeScreen = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center">
-      <Header />
+      {/* <Header /> */}
+      <Nav/>
       <main className="w-full">
         <Suspense fallback={<MainSpinner />}>
           <Routes>
-            <Route path="/" element={<HomeContainer />} />
+          <Route path="/" element={<ResumeHome/>} />
+            <Route path="/HomeContainer" element={<HomeContainer />} />
             
             <Route path="/template/create" element={<CreateTemplate />} />
             <Route path="/profile/:uid" element={<UserProfile />} />

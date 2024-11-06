@@ -1072,7 +1072,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FilterProvider } from "../context/filterContext";
 import useAuth from "../hooks/useAuth"; // Import useAuth
-
+import AllTemplate from "../pages/AllTemplate";
+import SimpleDesign from "../pages/SimpleDesign";
+import Professional from "../pages/Professional";
+import ATS from "../pages/ATS";
+import Modren from "../pages/Modren";
+import Creative from "../pages/Creative";
 const App = () => {
   const queryClient = new QueryClient();
   const { user, isLoading } = useAuth(); // Get user and isLoading state
@@ -1100,6 +1105,13 @@ const App = () => {
               path="/profile"
               element={user ? <UserProfile /> : <Navigate to="/auth" />} // If user is not authenticated, redirect to auth
             />
+            <Route path="/AllTemplate" element={<AllTemplate />} />
+            {/* <Route  path="/AllTemplate" element={<AllTemplate/>}/> */}
+            <Route  path="/SimpleDesign" element={<SimpleDesign/>}/>
+            <Route  path="/Professional" element={<Professional/>}/>
+            <Route  path="/ATS" element={<ATS/>}/>
+            <Route  path="/Modren" element={<Modren/>}/>
+            <Route  path="/Creative" element={<Creative/>}/>
           </Routes>
         </Suspense>
       </FilterProvider>
